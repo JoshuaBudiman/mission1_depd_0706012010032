@@ -2,7 +2,7 @@ part of 'pages.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
-
+  static const String routeName = '/';
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -16,6 +16,14 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Mission 1"),
         backgroundColor: Colors.redAccent,
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        label: Text("Book Now", style: TextStyle(color: Colors.black87)),
+        onPressed: () {
+          Navigator.pushNamed(context, bookingPage.routeName);
+        },
+        backgroundColor: Colors.transparent,
+        shape: StadiumBorder( side: BorderSide(color: Colors.black87, width: 2)),
       ),
       body: Container(
         width: double.infinity,
@@ -136,15 +144,11 @@ class _HomePageState extends State<HomePage> {
               flex: 4,
               child: ListView(
                 padding: const EdgeInsets.all(5),
-                children: const [
-
+                children: [
                   Text(
                     "Welcome to Tokyo!",
                     style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 18,
-                      height: 1.2
-                    ),
+                        fontWeight: FontWeight.w900, fontSize: 18, height: 1.2),
                     textAlign: TextAlign.center,
                   ),
                   Text(
@@ -155,7 +159,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                     textAlign: TextAlign.start,
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     "Tokyo is the largest urban economy worldwide by gross domestic product, and is categorized as an Alpha+ city by the Globalization and World Cities Research Network. It is also Japan's leading centre of business and finance as part of an industrial region that includes the cities of Yokohama, Kawasaki, and Chiba. As of 2021, Tokyo is home to 37 companies of the Fortune Global 500. In 2020, the city ranked fourth on the Global Financial Centres Index, behind only New York City, London, and Shanghai. Tokyo is home to the world's tallest tower, the Tokyo Skytree, and the world's largest underground floodwater diversion facility, the Metropolitan Area Outer Underground Discharge Channel (located in Kasukabe, Saitama, a suburb of Tokyo). The Tokyo Metro Ginza Line, opened in 1927, is the oldest underground metro line in East Asia.",
                     style: TextStyle(
@@ -163,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 16,
                     ),
                     textAlign: TextAlign.start,
-                  )
+                  ),
                 ],
               ),
             ),
